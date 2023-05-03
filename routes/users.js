@@ -3,11 +3,7 @@ const router = express.Router();
 
 const users = [];
 
-router.get("/", (request, response, next) => {
-    const name = request.query.name;
-    response.send(`this is the users name ${ name }`);
 
-});
 router.get("/new", (request, response, next) => {
 
     response.render('users/new', { firstName : "insert" });
@@ -22,6 +18,11 @@ router.post("/", (request, response, next) => {
         response.render(`users/new`, { firstName : request.body.firstName });
     }
     console.log(request.body);
+
+});
+router.get("/", (request, response, next) => {
+    const name = request.query.name;
+    response.send(`this is the users name ${ name }`);
 
 });
 router.get(`/:id`, (request, response, next) => {
