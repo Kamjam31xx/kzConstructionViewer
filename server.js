@@ -17,8 +17,8 @@ app.use(express.json());
 
 const aboutRouter = require('./routes/about');
 const usersRouter = require('./routes/users');
-app.use('/about', aboutRouter);
-app.use('/users', usersRouter);
+//app.use('/about', aboutRouter);
+//app.use('/users', usersRouter);
 app.use(logger);
 
 // public static over-rides below .get() since its above this
@@ -36,7 +36,7 @@ app.get('/', (request, response, next) => {
 */
 
 
-app.listen(80, "0.0.0.0");
+app.listen(443, "0.0.0.0");
 
 // ex middleware
 function logger(request, response, next)
