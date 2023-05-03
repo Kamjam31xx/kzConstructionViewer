@@ -1,0 +1,17 @@
+
+npm init -y
+npm i express
+npm i --save-dev nodemon
+npm i ejs
+npm i body-parser
+
+
+add to package.josn
+  "scripts": {
+    "devStart": "nodemon server.js",
+  },
+
+
+npm run devStart
+
+
