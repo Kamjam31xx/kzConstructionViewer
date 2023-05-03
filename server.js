@@ -22,6 +22,7 @@ app.use('/users', usersRouter);
 app.use(logger);
 
 // public static over-rides below .get() since its above this
+/*
 app.get('/', (request, response, next) => {
 
     //response.send("Hi from root directory");
@@ -30,8 +31,9 @@ app.get('/', (request, response, next) => {
     //response.status(500).json({ message: "Error" });
     //response.download("filepath");
 
-    response.render('index', { text: "world" });
+    response.render('./views/index', { text: "world" });
 });
+*/
 
 
 app.listen(8080, "0.0.0.0");
