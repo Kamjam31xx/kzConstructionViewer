@@ -36,7 +36,7 @@ app.get('/', (request, response, next) => {
 */
 
 
-app.listen(8080, "0.0.0.0");
+app.listen(80, "0.0.0.0");
 
 // ex middleware
 function logger(request, response, next)
