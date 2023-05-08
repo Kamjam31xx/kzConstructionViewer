@@ -2910,3 +2910,7 @@ node_modules/.bin/jake
 node_modules/.bin/ejs.ps1
 node_modules/.bin/ejs.cmd
 node_modules/.bin/ejs
+notes
+cert.pem
+key.pem
+notes
