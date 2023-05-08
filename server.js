@@ -19,9 +19,9 @@ app.use(express.json());
 app.use(logger);
 
 
-const PORT = 9090;
+const PORT = 8080;
 //app.listen(8080, "0.0.0.0");
-app.listen(9090, () => {
+app.listen(PORT, () => {
     console.log(`node server started... listening on port <${PORT}>`);
 });
 
