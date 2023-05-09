@@ -41,6 +41,10 @@ app.use(session({
     resave: false,
     saveUninitialized: true
 }));
+app.get(`/`, (request, response, next) =>
+{
+    response.render('index');
+});
 app.use(express.static("public"));
 
 
@@ -61,10 +65,7 @@ function httpRedirect(request, response, next)
     }
 }
 
-app.get(`./`, (request, response, next) =>
-{
-    response.render('index');
-});
+
 
 
 const httpsOptions = 
