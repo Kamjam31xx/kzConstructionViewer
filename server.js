@@ -61,6 +61,11 @@ function httpRedirect(request, response, next)
     }
 }
 
+app.get(`./`, (request, response, next) =>
+{
+    response.render('public/index');
+});
+
 
 const httpsOptions = 
 {
