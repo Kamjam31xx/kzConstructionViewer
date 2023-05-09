@@ -50,7 +50,7 @@ function httpRedirect(request, response, next)
         next();
     } else {
         console.log('redirect to https > ' + request.headers.host + request.url);
-        result.redirect('https://' + request.headers.host + request.url);
+        response.redirect('https://' + request.headers.host + request.url);
     }
 }
 
