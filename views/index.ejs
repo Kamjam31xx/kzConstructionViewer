@@ -4,12 +4,24 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>KZ Construction Viewer</title>
+    <style>
+        body{
+            margin: 0;
+        }
+        canvas{
+            width: 100%;
+            height: 100%;
+        }
+    </style>
 </head>
 <body>
-
-    <h2>Howdy dawgi 2+2 = <%= locals.text || "default text" %></h2>
-    <h1> <%= locals.headingText || "sawgi butts" %> </h1>
-
+    <script type="module" src="three.js"></script>
+    <script type="module" src="three.module.js"></script>
+    <script type="module" src="OrbitControls.js"></script>
+    <script type="module" src="dat.gui.module.js"></script>
+    <script type="module" src="OBJLoader.js"></script>
+    <!--script type="module" src="kzconstruction-viewer.js"></script-->
+    <% include ./kzconstructon-viewer.js %>
 </body>
 </html>
