@@ -41,7 +41,6 @@ app.use(session({
     resave: false,
     saveUninitialized: true
 }));
-app.use(logger);
 app.use(express.static("public"));
 
 
@@ -49,7 +48,6 @@ app.use(express.static("public"));
 function logger(request, response, next)
 {
     console.log(`<logger> [${request.secure ? 'https' : 'http'}] : ${request.originalUrl}`);
-    console.log(`<logger> session data : ${request.session}`);
     next();
 }
 
