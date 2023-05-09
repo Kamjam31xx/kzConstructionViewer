@@ -1,0 +1,14 @@
+{
+    "ports" : {
+        "http": 80,
+        "https": 443,
+        "ssh": 22
+    },
+    "filepaths" : {
+        "privateKey": "/etc/letsencrypt/live/kzconstructionviewer.com/privkey.pem",
+        "fullChain": "/etc/letsencrypt/live/kzconstructionviewer.com/fullchain.pem",
+        "privateKeyLocal": "/home/kamjam31xx/kzConstructionViewer/ssl/privkey.pem",
+        "fullChainLocal": "/home/kamjam31xx/kzConstructionViewer/ssl/fullchain.pem",
+        "app": "/home/kamjam31xx/kzConstructionViewer/"
+    }
+}
