@@ -63,7 +63,7 @@ function httpRedirect(request, response, next)
 
 app.get(`./`, (request, response, next) =>
 {
-    response.render('public/index');
+    response.render('/public/index');
 });
 
 
