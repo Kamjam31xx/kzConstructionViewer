@@ -30,24 +30,11 @@ const https = require('https');
 // maintain order
 const app = express();
 app.set('view engine', 'ejs');
-app.use(express.static("public"));
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 app.use(logger);
-
-
-
-
-// Redirect HTTP to HTTPS
-app.use((requests, result, next) => 
-{
-    if (request.secure) {
-        next();
-    } else {
-        result.redirect('https://' + request.headers.host + request.url);
-    }
-});
-
+//app.use(httpRedirect);
+app.use(express.static("public"));
 
 
 
@@ -56,6 +43,14 @@ function logger(request, response, next)
 {
     console.log("<logger> " + request.originalUrl);
     next();
+}
+function httpRedirect(request, response, next)
+{
+    if (request.secure) {
+        next();
+    } else {
+        result.redirect('https://' + request.headers.host + request.url);
+    }
 }
 
 
