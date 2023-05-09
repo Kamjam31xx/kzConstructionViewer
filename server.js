@@ -41,7 +41,7 @@ app.use(httpRedirect);
 // middleware
 function logger(request, response, next)
 {
-    console.log("<logger> " + request.originalUrl);
+    console.log(`<logger> [${request.secure}] : ${request.originalUrl}`);
     next();
 }
 function httpRedirect(request, response, next)
@@ -49,6 +49,7 @@ function httpRedirect(request, response, next)
     if (request.secure) {
         next();
     } else {
+        console.log('https://' + request.headers.host + request.url);
         result.redirect('https://' + request.headers.host + request.url);
     }
 }
