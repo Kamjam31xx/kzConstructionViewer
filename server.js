@@ -14,7 +14,7 @@ console.log(config);
 const PORT_HTTP              = config.ports.http;
 const PORT_HTTPS             = config.ports.https;
 const PATH_PRIVATE_KEY       = config.paths.privateKey;
-const PATH_PRIVATE_KEY_LOCAL = config.privateKeyLocal;
+const PATH_PRIVATE_KEY_LOCAL = config.paths.privateKeyLocal;
 const PATH_FULL_CHAIN        = config.paths.fullChain;
 const PATH_FULL_CHAIN_LOCAL  = config.paths.fullChainLocal;
 const PATH_APP               = config.paths.app;

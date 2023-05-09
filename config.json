@@ -4,7 +4,7 @@
         "https": 443,
         "ssh": 22
     },
-    "filepaths" : {
+    "paths" : {
         "privateKey": "/etc/letsencrypt/live/kzconstructionviewer.com/privkey.pem",
         "fullChain": "/etc/letsencrypt/live/kzconstructionviewer.com/fullchain.pem",
         "privateKeyLocal": "/home/kamjam31xx/kzConstructionViewer/ssl/privkey.pem",
