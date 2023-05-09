@@ -40,7 +40,8 @@ app.use(session({
     secret: crypto.randomBytes(32).toString('hex'),
     resave: false,
     saveUninitialized: true
-}))
+}));
+app.use(logger);
 app.use(express.static("public"));
 
 
