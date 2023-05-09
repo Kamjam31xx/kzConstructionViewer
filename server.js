@@ -20,8 +20,8 @@ const PATH_FULL_CHAIN_LOCAL  = config.paths.fullChainLocal;
 const PATH_APP               = config.paths.app;
 
 // Load the SSL/TLS key and certificate
-const PRIVATE_KEY = fs.readFileSync(PATH_PRIVATE_KEY);
-const CERTIFICATE = fs.readFileSync(PATH_FULL_CHAIN);
+const PRIVATE_KEY = fs.readFileSync(PATH_PRIVATE_KEY_LOCAL, 'utf8');
+const CERTIFICATE = fs.readFileSync(PATH_FULL_CHAIN_LOCAL, 'utf8');
 
 // server includes
 const express = require('express');
@@ -29,19 +29,24 @@ const https = require('https');
 
 // maintain order
 const app = express();
-app.use((req, res, next) => {
-    // Redirect HTTP to HTTPS
-    if (req.secure) {
-      next();
-    } else {
-      res.redirect('https://' + req.headers.host + req.url);
-    }
-  });
 app.set('view engine', 'ejs');
 app.use(express.static("public"));
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 app.use(logger);
+
+
+
+
+// Redirect HTTP to HTTPS
+app.use((requests, result, next) => 
+{
+    if (request.secure) {
+        next();
+    } else {
+        result.redirect('https://' + request.headers.host + request.url);
+    }
+});
 
 
 
@@ -55,7 +60,8 @@ function logger(request, response, next)
 
 
 
-const httpsOptions = {
+const httpsOptions = 
+{
     key: PRIVATE_KEY,
     cert: CERTIFICATE
 };
