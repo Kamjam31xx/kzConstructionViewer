@@ -6,6 +6,10 @@
 
 const { readFile } = require('fs').promises
 const fs = require('fs');
+const express = require('express');
+const https = require('https');
+const express = require('express-session');
+const crypto = require('crypto');
 
 
 // Config file containing file paths and more
@@ -19,13 +23,11 @@ const PATH_FULL_CHAIN        = config.paths.fullChain;
 const PATH_FULL_CHAIN_LOCAL  = config.paths.fullChainLocal;
 const PATH_APP               = config.paths.app;
 
+
 // Load the SSL/TLS key and certificate
 const PRIVATE_KEY = fs.readFileSync(PATH_PRIVATE_KEY_LOCAL, 'utf8');
 const CERTIFICATE = fs.readFileSync(PATH_FULL_CHAIN_LOCAL, 'utf8');
 
-// server includes
-const express = require('express');
-const https = require('https');
 
 // maintain order
 const app = express();
@@ -34,16 +36,22 @@ app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 app.use(logger);
 app.use(httpRedirect);
+app.use(session({
+    secret: crypto.randomBytes(32).toString('hex'),
+    resave: false,
+    saveUninitialized: true
+}))
 app.use(express.static("public"));
-
 
 
 // middleware
 function logger(request, response, next)
 {
     console.log(`<logger> [${request.secure ? 'https' : 'http'}] : ${request.originalUrl}`);
+    console.log(`<logger> session data : ${request.session}`);
     next();
 }
+
 function httpRedirect(request, response, next)
 {
     if (request.secure) {
@@ -53,7 +61,6 @@ function httpRedirect(request, response, next)
         response.redirect('https://' + request.headers.host + request.url);
     }
 }
-
 
 
 const httpsOptions = 
