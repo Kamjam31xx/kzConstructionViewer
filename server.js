@@ -33,8 +33,8 @@ app.set('view engine', 'ejs');
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 app.use(logger);
-app.use(express.static("public"));
 app.use(httpRedirect);
+app.use(express.static("public"));
 
 
 
@@ -49,7 +49,7 @@ function httpRedirect(request, response, next)
     if (request.secure) {
         next();
     } else {
-        console.log('https://' + request.headers.host + request.url);
+        console.log('redirect to https > ' + request.headers.host + request.url);
         result.redirect('https://' + request.headers.host + request.url);
     }
 }
