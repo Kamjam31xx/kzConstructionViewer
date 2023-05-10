@@ -44,7 +44,25 @@ app.use(session({
 }));
 app.get(`/`, (request, response, next) =>
 {
-    response.render('index');
+    const reject = () => {
+        result.setHeader("www-authenticate", "Basic");
+        result.sendStatus(401);
+    };
+
+    const authorization = request.headers.authorization;
+
+    if(!authorization) {
+        return reject();
+    }
+
+    const [username, password] = Buffer.from(authorization.replace("Basic ", ""), "base64").toString().split(":");
+
+    if(username === "admin" && password === "kzconstruction")
+    {
+        result.render('protected/index');
+    } else {
+        return reject();
+    }
 });
 app.use(express.static("public"));
 
