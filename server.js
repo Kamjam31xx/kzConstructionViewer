@@ -31,6 +31,7 @@ const CERTIFICATE = fs.readFileSync(PATH_FULL_CHAIN_LOCAL, 'utf8');
 
 // maintain order
 const app = express();
+app.set('views', './views');
 app.set('view engine', 'ejs');
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
