@@ -445,69 +445,6 @@ function InitializeGui()
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-/////////////////////////////////////////////////////////////////////////////////////////////////
-/////////////////////////////////////////////////////////////////////////////////////////////////
-/////////////////////////////////////////////////////////////////////////////////////////////////
-/////////////////////////////////////////////////////////////////////////////////////////////////
-/////////////////////////////////////////////////////////////////////////////////////////////////
-/////////////////////////////////////////////////////////////////////////////////////////////////
-/////////////////////////////////////////////////////////////////////////////////////////////////
-/////////////////////////////////////////////////////////////////////////////////////////////////
-/////////////////////////////////////////////////////////////////////////////////////////////////
-/////////////////////////////////////////////////////////////////////////////////////////////////
-/////////////////////////////////////////////////////////////////////////////////////////////////
-/////////////////////////////////////////////////////////////////////////////////////////////////
-
-
-    /*
-    BaseFolder.add(BaseController, "showMeasurements").name("Measurements").onChange( function () 
-    {
-        SetDetailModelVisibility('measurements', showMeasurements);
-    });
-    BaseFolder.add(BaseController, "gridOpacity", 1.0, 10.0, 1.0).name("Grid Opacity").onChange( function()
-    {
-    });
-
-
-    */
-
-
-        /*
-        showMeasurements: false,
-        showAnnotation: false,
-        showGrid: false,
-        gridOpacity: 5.0,
-        theme: 'kz',
-        */
-
-
-    /*
-    Lights.directional.forEach((item, index)=>
-    {
-        let q = [ {x:1.0,z:1.0}, {x:-1.0,z:1.0}, {x:1.0,z:-1.0}, {x:-1.0,z:1.0} ];
-        item = new THREE.DirectionalLight(LightSettings.directionalColor, LightSettings.directionalIntensity);
-        Scene.add(item);
-        item.position.set(
-            q[index].x * LightSettings.directionalPositions.x, 
-            LightSettings.directionalPositions.y, 
-            q[index].z * LightSettings.directionalPositions.z);
-        item.castShadow = true;
-    });
-    */
-
-
-
 function CopyPropertiesTo(dest, source, keys)
 {
     for(const[key, value] of Object.entries(source))
@@ -592,48 +529,8 @@ async function LoadScans()
         scan.before.object3D.children[0].material = await new THREE.MeshBasicMaterial({map: await new THREE.TextureLoader().load(await scan.before.texturePath)});
         Scene.add(await scan.before.object3D);
 
-
-        //scan.during.object3D = await LoadScanOBJ(scan.during.modelPath);
-        //scan.during.object3D.children[0].material = await new THREE.MeshBasicMaterial({map: await new THREE.TextureLoader().load(await scan.during.texturePath)});
-        //Scene.add(await scan.during.object3D);
-
         scan.after.object3D = await LoadScanOBJ(scan.after.modelPath);
         scan.after.object3D.children[0].material = await new THREE.MeshBasicMaterial({map: await new THREE.TextureLoader().load(await scan.after.texturePath)});
         Scene.add(await scan.after.object3D);
-        /*
-        for(let view of ['before', 'during', 'after'])
-        {
-            console.log(view);
-            if(scan.hasOwnProperty(view))
-            {
-                //console.log(scan[view]);
-                console.log(scan[view].texturePath);
-                scan[view].object3D = await LoadScanOBJ(scan[view].modelPath);
-                scan[view].object3D.children[0].material = await new THREE.MeshBasicMaterial({map: await new THREE.TextureLoader().load(await scan[view].texturePath)});
-                //InvertModelAxisByString(scan[view].object3D, scan.invertedAxis);
-                
-                if(scan[view].texturePath === undefined)
-                {
-                    scan[view].object3D.children[0].material = await new THREE.MeshStandardMaterial({
-                        color: 0x969696, 
-                        opacity: 1.0, 
-                        transparent: false, 
-                        roughness: 0.68, 
-                        metalness: 0.16,
-                        flatShading: false,
-                        wireframeLinejoin: "bevel"
-                    });
-                }
-                else
-                {
-                    scan[view].object3D.children[0].material = await new THREE.MeshBasicMaterial({map: new THREE.TextureLoader().load(scan[view].texturePath)});
-                }
-                
-                //scanView.material = scanView.object3D.children[0].material;
-                //scan[view].object3D.rotation.copy(scan.rotation);
-                Scene.add(scan[view].object3D);
-            }
-        }
-        */
     }
 }
