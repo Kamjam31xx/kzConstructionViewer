@@ -45,8 +45,8 @@ app.use(session({
 app.get(`/`, (request, response, next) =>
 {
     const reject = () => {
-        result.setHeader("www-authenticate", "Basic");
-        result.sendStatus(401);
+        response.setHeader("www-authenticate", "Basic");
+        response.sendStatus(401);
     };
 
     const authorization = request.headers.authorization;
@@ -59,7 +59,7 @@ app.get(`/`, (request, response, next) =>
 
     if(username === "admin" && password === "kzconstruction")
     {
-        result.render('protected/index');
+        response.render('protected/index');
     } else {
         return reject();
     }
