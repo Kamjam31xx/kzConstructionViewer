@@ -258,8 +258,10 @@ function OnWindowResize()
     Camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 2000);
     Camera.updateProjectionMatrix();
     Camera.position.copy(CameraState.position);
+    Renderer.setPixelRatio(window.devicePixelRatio);
     Renderer.setSize(window.innerWidth, window.innerHeight);
-
+    Renderer.domElement.style.width =  Renderer.domElement.width  * Settings.pixelScale + 'px';
+    Renderer.domElement.style.height = Renderer.domElement.height * Settings.pixelScale + 'px';
     //CameraControls.object = Camera;
     //CameraControls.update();
     CameraControls = new OrbitControls(Camera, Renderer.domElement);
