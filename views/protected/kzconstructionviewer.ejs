@@ -261,7 +261,8 @@ function OnWindowResize()
     Renderer.setSize(window.innerWidth, window.innerHeight);
 
     //CameraControls.object = Camera;
-    CameraControls.update();
+    //CameraControls.update();
+    CameraControls = new OrbitControls(Camera, Renderer.domElement);
 }
 
 async function LoadScanOBJ(meshPath)
