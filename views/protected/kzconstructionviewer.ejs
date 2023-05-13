@@ -366,6 +366,8 @@ function InitializeApp()
     Scene.add(Lights.dir);
     Lights.dir.position.set(200, 400, 200); 
 
+    OnWindowResize();
+
     if (navigator.userAgent.match(/Android/i)
         || navigator.userAgent.match(/webOS/i)
         || navigator.userAgent.match(/iPhone/i)
@@ -374,10 +376,9 @@ function InitializeApp()
         || navigator.userAgent.match(/BlackBerry/i)
         || navigator.userAgent.match(/Windows Phone/i)) 
     {
-        Camera.position.multiplyScalar(3);
+        Camera.position.multiplyScalar(1.5);
     }
 
-    OnWindowResize();
 }
     
 function InitializeGui()
