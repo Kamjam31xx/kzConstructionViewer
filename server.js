@@ -42,16 +42,18 @@ app.use(session({
     resave: false,
     saveUninitialized: true
 }));
-app.get(`/`, (request, response, next) =>
+/*app.get(`/`, (request, response, next) =>
 {
-    const reject = () => {
+    const reject = () => 
+    {
         response.setHeader("www-authenticate", "Basic");
         response.sendStatus(401);
     };
 
     const authorization = request.headers.authorization;
 
-    if(!authorization) {
+    if(!authorization) 
+    {
         return reject();
     }
 
@@ -63,6 +65,10 @@ app.get(`/`, (request, response, next) =>
     } else {
         return reject();
     }
+});*/
+app.get('/', (request, response, next) => 
+{
+    response.render('protected/index');
 });
 app.use(express.static("public"));
 
