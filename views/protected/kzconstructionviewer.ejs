@@ -218,6 +218,8 @@ if(IsSupported())
     LogoPlane = new THREE.Mesh(LogoGeometry, LogoMaterial);
     Scene.add(LogoPlane);
 
+    OnWindowResize();
+
     RenderLoop();
 }
 else
@@ -241,6 +243,8 @@ function RenderLoop()
     AddToVec3(LogoPlane.position, forward);
     AddToVec3(LogoPlane.position, up);
     AddToVec3(LogoPlane.position, right);
+
+    console.log(window.innerWidth + "  w:h  " + window.innerHeight);
 
     Renderer.render(Scene, Camera);
 }
