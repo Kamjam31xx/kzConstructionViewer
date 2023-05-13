@@ -65,7 +65,7 @@ let LightSettings =
 
 let CameraState = 
 {
-    fov: 75,
+    fov: 160,//75,
     nearPlane: 0.1,
     farPlane: 2000.0,
     position: new Vector3( -80.0, 144.0, 110.0 ),
@@ -367,20 +367,6 @@ function InitializeApp()
     Lights.dir.position.set(200, 400, 200); 
 
     OnWindowResize();
-
-    if (navigator.userAgent.match(/Android/i) || navigator.userAgent.match(/webOS/i)
-        || navigator.userAgent.match(/iPhone/i) || navigator.userAgent.match(/iPad/i)
-        || navigator.userAgent.match(/iPod/i) || navigator.userAgent.match(/BlackBerry/i)
-        || navigator.userAgent.match(/Windows Phone/i)) 
-    {
-        Camera.position.multiplyScalar(1.5);
-        Renderer.domElement.style.width =  Renderer.domElement.height  * Settings.pixelScale + 'px';
-        Renderer.domElement.style.height = Renderer.domElement.width * Settings.pixelScale + 'px';
-        Camera.fov = 140;
-        Camera.updateProjectionMatrix();
-    }
-
-
 
 }
     
