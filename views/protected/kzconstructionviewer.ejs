@@ -354,7 +354,7 @@ function InitializeApp()
     }
 
     Renderer.setPixelRatio(window.devicePixelRatio);
-    Renderer.setSize((window.innerWidth/Settings.pixelScale), (window.innerHeight/Settings.pixelScale));
+    Renderer.setSize((window.innerWidth * Settings.pixelScale), (window.innerHeight * Settings.pixelScale));
     document.body.appendChild(Renderer.domElement);
     Renderer.domElement.style.width =  Renderer.domElement.width  * Settings.pixelScale + 'px';
     Renderer.domElement.style.height = Renderer.domElement.height * Settings.pixelScale + 'px';
