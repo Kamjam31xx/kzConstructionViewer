@@ -11,6 +11,8 @@ let Scene, Camera, Renderer, Loader, CameraControls;
 let Gui;
 let grid;
 
+window.devicePixelRatio = 1;
+
 const CONST = Object.freeze(
 {
     GLOBAL_SCALE: 1.0,
@@ -83,7 +85,7 @@ let Lights =
 let Settings = 
 {
     dynamicBufferScaling: false, // need to implement dynamicBufferScaling
-    pixelScale: 1.0,
+    pixelScale: window.devicePixelRatio,
 
     backgroundColor: 0x787878,
 
