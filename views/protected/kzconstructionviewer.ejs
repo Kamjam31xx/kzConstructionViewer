@@ -376,10 +376,11 @@ function InitializeApp()
         Camera.position.multiplyScalar(1.5);
         Renderer.domElement.style.width =  Renderer.domElement.height  * Settings.pixelScale + 'px';
         Renderer.domElement.style.height = Renderer.domElement.width * Settings.pixelScale + 'px';
+        Camera.fov = 140;
         Camera.updateProjectionMatrix();
     }
 
-    
+
 
 }
     
