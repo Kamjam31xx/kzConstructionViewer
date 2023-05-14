@@ -146,6 +146,7 @@ let LightTheme = {
 }
 
 let LogoPlane = {};
+let LogoTexture = {};
 let LogoMaterial = {};
 let LogoGeometry = {};
 let LogoWidth = 2.0;
@@ -214,16 +215,15 @@ if(IsSupported())
 
     Scene.add(PresentScan);
 
-
+    LogoTexture = new THREE.TextureLoader().load(`./images/logo_standard.png`);
     LogoMaterial = new THREE.MeshBasicMaterial(
     { 
         color: 0xffffff, 
         side: THREE.DoubleSide, 
-        map: await new THREE.TextureLoader().load(`./images/logo_standard.png`),
+        map: LogoTexture,
         transparent: true,
     });
-    console.log(LogoMaterial.map);
-    LogoGeometry = new THREE.PlaneGeometry( await LogoMaterial.map.image.width * LogoScale, await LogoMaterial.map.image.height * LogoScale);
+    LogoGeometry = new THREE.PlaneGeometry( LogoMaterial.map.image.width * LogoScale, LogoMaterial.map.image.height * LogoScale);
     LogoPlane = new THREE.Mesh(LogoGeometry, LogoMaterial);
     Scene.add(LogoPlane);
 
