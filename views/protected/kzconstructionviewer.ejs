@@ -215,7 +215,12 @@ if(IsSupported())
     Scene.add(PresentScan);
 
 
-    LogoMaterial = new THREE.MeshBasicMaterial({ color: 0xffff00, side: THREE.DoubleSide });
+    LogoMaterial = new THREE.MeshBasicMaterial(
+    { 
+        color: 0xffff00, 
+        side: THREE.DoubleSide, 
+        map: await new THREE.TextureLoader().load(`./images/logo_standard.png`)
+    });
     LogoGeometry = new THREE.PlaneGeometry(LogoWidth * LogoScale, LogoHeight * LogoScale);
     LogoPlane = new THREE.Mesh(LogoGeometry, LogoMaterial);
     Scene.add(LogoPlane);
