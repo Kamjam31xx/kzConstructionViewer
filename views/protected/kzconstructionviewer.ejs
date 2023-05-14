@@ -222,7 +222,7 @@ if(IsSupported())
         map: await new THREE.TextureLoader().load(`./images/logo_standard.png`),
         transparent: true,
     });
-    console.log(LogoMaterial);
+    console.log(LogoMaterial.map);
     LogoGeometry = new THREE.PlaneGeometry( await LogoMaterial.map.image.width * LogoScale, await LogoMaterial.map.image.height * LogoScale);
     LogoPlane = new THREE.Mesh(LogoGeometry, LogoMaterial);
     Scene.add(LogoPlane);
