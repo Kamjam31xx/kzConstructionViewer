@@ -302,7 +302,7 @@ async function SetActiveView()
     PresentScan = await LoadScanOBJ(PresentJob[PresentView].model);
     PresentScanMaterial = await new THREE.MeshBasicMaterial({map: await new THREE.TextureLoader().load(PresentJob[PresentView].texture)});
     PresentShaderMaterial = new THREE.MeshPhongMaterial({ 
-        color: 0xff4d00,//Colors.kzOrange,
+        //color: 0xff4d00,//Colors.kzOrange,
         emissive: 0xff4d00,//Colors.kzOrangeEmissive,//0x3f3f3f,
         emissiveIntesnsity: 0.8,
         specular: 0xff4d00,
