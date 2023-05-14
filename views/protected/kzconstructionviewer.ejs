@@ -149,9 +149,9 @@ let LogoPlane = {};
 let LogoTexture = {};
 let LogoMaterial = {};
 let LogoGeometry = {};
-let LogoWidth = 2.0;
-let LogoHeight = 2.0;
-let LogoScale = 1/1200;
+let LogoWidth = 4328;
+let LogoHeight = 1031;
+let LogoScale = 1/800;
 let LogoX = -window.innerWidth/260.0;
 let LogoY = window.innerWidth/270.0;
 let LogoZ = 10.0;
@@ -223,7 +223,7 @@ if(IsSupported())
         map: LogoTexture,
         transparent: true,
     });
-    LogoGeometry = new THREE.PlaneGeometry( 4328 * LogoScale, 1031 * LogoScale);
+    LogoGeometry = new THREE.PlaneGeometry( LogoWidth * LogoScale, LogoHeight * LogoScale);
     LogoPlane = new THREE.Mesh(LogoGeometry, LogoMaterial);
     Scene.add(LogoPlane);
 
