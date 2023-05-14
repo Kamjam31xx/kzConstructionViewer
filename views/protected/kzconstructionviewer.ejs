@@ -307,6 +307,7 @@ async function SetActiveView()
         specular: 0xff4d00,
         shininess: 18,
         normalMap: await new THREE.TextureLoader().load(PresentJob[PresentView].normal),
+        map: await new THREE.TextureLoader().load(PresentJob[PresentView].normal),
     });
 
     if(BaseController.appearance == 'texture')
