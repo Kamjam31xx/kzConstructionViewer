@@ -390,7 +390,7 @@ function InitializeGui()
         job: 'driveway expansion',
         view: 'before',
         appearance: 'texture',
-        theme: 'kz',
+        //theme: 'kz',
         toggleAppearanceButtonClicked()
         {
             if(this.appearance == 'texture') 
@@ -432,7 +432,8 @@ function InitializeGui()
     BaseFolder.add(BaseController, "view", ['before', 'during', 'after']).name("View").onChange( function()
     {
         SetActiveView();
-    }); 
+    });
+    /* 
     BaseFolder.add(BaseController, "theme", ['kz', 'yellow', 'dark', 'light']).name("Theme").onChange( function()
     {
         switch(BaseController.category) 
@@ -453,6 +454,7 @@ function InitializeGui()
                 // incase no matches
         }
     });  
+    */
     BaseFolder.open();
 }
 
