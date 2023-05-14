@@ -266,8 +266,8 @@ function OnWindowResize()
     Camera.position.copy(CameraState.position);
     Renderer.setPixelRatio(window.devicePixelRatio);
     Renderer.setSize(window.innerWidth, window.innerHeight);
-    Renderer.domElement.style.width =  Renderer.domElement.width  * Settings.pixelScale + 'px';
-    Renderer.domElement.style.height = Renderer.domElement.height * Settings.pixelScale + 'px';
+    Renderer.domElement.style.width =  Renderer.domElement.width  / window.devicePixelRatio + 'px';
+    Renderer.domElement.style.height = Renderer.domElement.height / window.devicePixelRatio + 'px';
     //CameraControls.object = Camera;
     //CameraControls.update();
     CameraControls = new OrbitControls(Camera, Renderer.domElement);
@@ -355,10 +355,12 @@ function InitializeApp()
     }
 
     Renderer.setPixelRatio(window.devicePixelRatio);
-    Renderer.setSize((window.innerWidth * Settings.pixelScale), (window.innerHeight * Settings.pixelScale));
+    //Renderer.setSize((window.innerWidth / Settings.pixelScale), (window.innerHeight / Settings.pixelScale));
+    //Renderer.setSize((window.innerWidth / window.devicePixelRatio), (window.innerHeight / window.devicePixelRatio));
+    Renderer.setSize(window.innerWidth, window.innerHeight);
     document.body.appendChild(Renderer.domElement);
-    Renderer.domElement.style.width =  Renderer.domElement.width  * Settings.pixelScale + 'px';
-    Renderer.domElement.style.height = Renderer.domElement.height * Settings.pixelScale + 'px';
+    Renderer.domElement.style.width =  Renderer.domElement.width  / window.devicePixelRatio + 'px';
+    Renderer.domElement.style.height = Renderer.domElement.height / window.devicePixelRatio + 'px';
     for(const[key, value] of Object.entries(RenderSettings))
     {
         Renderer[key] = value;
