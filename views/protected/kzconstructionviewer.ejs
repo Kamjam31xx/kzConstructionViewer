@@ -219,7 +219,7 @@ if(IsSupported())
     { 
         color: 0xffffff, 
         side: THREE.DoubleSide, 
-        map: new THREE.TextureLoader().load(`./images/logo_standard.png`),
+        map: await new THREE.TextureLoader().load(`./images/logo_standard.png`),
         transparent: true,
     });
     console.log(LogoMaterial);
