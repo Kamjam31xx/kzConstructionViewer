@@ -201,9 +201,9 @@ if(IsSupported())
     PresentScan = await LoadScanOBJ(Scans[0].before.model);
     PresentScanMaterial = await new THREE.MeshBasicMaterial({map: await new THREE.TextureLoader().load(await Scans[0].before.texture)});
     PresentShaderMaterial = new THREE.MeshPhongMaterial({ 
-        color: Colors.kzOrange,
-        emissive: 0x3f3f3f,
-        specular: 0x353535,
+        color: 0xff4d00,//Colors.kzOrange,
+        emissive: 0xff4d00,//Colors.kzOrangeEmissive,//0x3f3f3f,
+        specular: 0xff4d00,
         shininess: 18,
         normalMap: await new THREE.TextureLoader().load(Scans[0].before.normal),
     });
@@ -318,8 +318,6 @@ async function SetActiveView()
         PresentScan.children[0].material = PresentShaderMaterial.clone();
     }
     Scene.add(PresentScan);
-
-    console.log(presentScan.children[0].material);
 
 }
 
