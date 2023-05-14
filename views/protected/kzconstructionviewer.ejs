@@ -150,7 +150,7 @@ let LogoMaterial = {};
 let LogoGeometry = {};
 let LogoWidth = 2.0;
 let LogoHeight = 2.0;
-let LogoScale = 1.0;
+let LogoScale = 1/400;
 let LogoX = -window.innerWidth/260.0;
 let LogoY = window.innerWidth/270.0;
 let LogoZ = 10.0;
@@ -219,10 +219,10 @@ if(IsSupported())
     { 
         color: 0xffffff, 
         side: THREE.DoubleSide, 
-        map: await new THREE.TextureLoader().load(`./images/logo_standard.png`),
+        map: new THREE.TextureLoader().load(`./images/logo_standard.png`),
         transparent: true,
     });
-    LogoGeometry = new THREE.PlaneGeometry(LogoWidth * LogoScale, LogoHeight * LogoScale);
+    LogoGeometry = new THREE.PlaneGeometry(LogoMaterial.image.width * LogoScale, LogoMaterial.image.height * LogoScale);
     LogoPlane = new THREE.Mesh(LogoGeometry, LogoMaterial);
     Scene.add(LogoPlane);
 
