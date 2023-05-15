@@ -156,6 +156,13 @@ let LogoX = 0;//-window.innerWidth/260.0;
 let LogoY = -window.innerHeight/220.0;
 let LogoZ = 10.0;
 
+let Background = {};
+let BackgroundTexture = {};
+let BackgroundMaterial = {};
+let BackgroundGeometry = {};
+let BackgroundScale = 1;
+let BackgroundZ = 800.0;
+
 let Grid = {};
 let GridMaterial = {};
 let MeasureMaterial = {};
@@ -227,6 +234,19 @@ if(IsSupported())
     LogoPlane = new THREE.Mesh(LogoGeometry, LogoMaterial);
     Scene.add(LogoPlane);
 
+
+    BackgroundTexture = new THREE.TextureLoader().load(`./images/kzbackdrop_0.jpg`);
+    BackgroundMaterial = new THREE.MeshBasicMaterial(
+        {
+            side: THREE.DoubleSide,
+            map: BackgroundTexture,
+        }
+    );
+    BackgroundGeometry = new THREE.PlameGeometry( 4096 * BackgroundScale , 4096 * BackgroundScale );
+    BackgroundPlane = new THREE.Mesh(BackgroundGeometry, BackgroundMaterial);
+    Scene.add(BackgroundPlane);
+
+
     OnWindowResize();
 
     RenderLoop();
@@ -243,15 +263,20 @@ function RenderLoop()
 
     LogoPlane.position.copy(Camera.position);
     LogoPlane.rotation.copy(Camera.rotation);
-
     let scaleIt = 1.0;
     let forward = new Vector3(0.0, 0.0, -LogoZ * scaleIt).applyEuler(Camera.rotation.clone());
     let up = new Vector3(0.0, LogoY, 0.0).applyEuler(Camera.rotation.clone());
     let right = new Vector3(LogoX, 0.0, 0.0).applyEuler(Camera.rotation.clone());
-
     AddToVec3(LogoPlane.position, forward);
     AddToVec3(LogoPlane.position, up);
     AddToVec3(LogoPlane.position, right);
+
+
+    BackgroundPlane.position.copy(Camera.position);
+    BackgroundPlane.rotation.copy(Camera.rotation);
+    forward = new Vector3(0.0, 0.0, -BackgroundZ * scaleIt).applyEuler(Camera.rotation.clone());
+    AddToVec3(BackgroundPlane.position, forward);
+    
 
     Renderer.render(Scene, Camera);
 }
