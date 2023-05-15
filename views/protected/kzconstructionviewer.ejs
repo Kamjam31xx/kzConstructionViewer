@@ -242,7 +242,7 @@ if(IsSupported())
             map: BackgroundTexture,
         }
     );
-    BackgroundGeometry = new THREE.PlameGeometry( 4096 * BackgroundScale , 4096 * BackgroundScale );
+    BackgroundGeometry = new THREE.PlaneGeometry( 4096 * BackgroundScale , 4096 * BackgroundScale );
     BackgroundPlane = new THREE.Mesh(BackgroundGeometry, BackgroundMaterial);
     Scene.add(BackgroundPlane);
 
