@@ -354,10 +354,7 @@ function InitializeApp()
         Camera = new THREE.PerspectiveCamera(Settings.fov, window.innerWidth / window.innerHeight, Settings.nearPlane, Settings.farPlane);
         
         //Scene.background = new THREE.Color(Settings.backgroundColor);
-        Scene.background = new THREE.TextureLoader().load(`./images/backdrop_0.png`);
-        Scene.background.wrapS = THREE.RepeatingWrapping;
-        Scene.background.wrapT = THREE.RepeatingWrapping;
-        Scene.background.repeat.set( 10, 10 );
+        Scene.background = new THREE.TextureLoader().load(`./images/kzbackdrop_0.png`);
         
         Scene.fog = new THREE.Fog(Settings.fogColor, Settings.fogNear, Settings.fogFar);
     }
