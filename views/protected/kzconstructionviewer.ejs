@@ -160,7 +160,7 @@ let BackgroundPlane = {};
 let BackgroundTexture = {};
 let BackgroundMaterial = {};
 let BackgroundGeometry = {};
-let BackgroundScale = 1;
+let BackgroundScale = 1.75;
 let BackgroundZ = 990.0;
 
 let Grid = {};
@@ -235,7 +235,7 @@ if(IsSupported())
     Scene.add(LogoPlane);
 
 
-    BackgroundTexture = new THREE.TextureLoader().load(`./images/kzbackdrop_0.jpg`);
+    BackgroundTexture = new THREE.TextureLoader().load(`./images/default_backdrop.jpg`);
     BackgroundMaterial = new THREE.MeshBasicMaterial(
         {
             color: 0xffffff,
