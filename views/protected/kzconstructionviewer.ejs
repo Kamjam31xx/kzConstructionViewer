@@ -238,6 +238,8 @@ if(IsSupported())
     BackgroundTexture = new THREE.TextureLoader().load(`./images/kzbackdrop_0.jpg`);
     BackgroundMaterial = new THREE.MeshBasicMaterial(
         {
+            color: 0xffffff,
+            emissive: 0x333333,
             side: THREE.DoubleSide,
             map: BackgroundTexture,
         }
